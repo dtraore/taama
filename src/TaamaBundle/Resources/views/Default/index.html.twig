@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>
+        {% block title %}
+            Tamma | Accueil
+        {% endblock %}
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block style %}
+        {% stylesheets '@TaamaBundle/Resources/public/css/bootstrap.min.css' filter='cssrewrite'  %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
+    {% block javascript %}
+        {% javascripts '@TaamaBundle/Resources/public/js/bootstrap.min.js'  %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        {% javascripts '@TaamaBundle/Resources/public/js/jquery.min.js'  %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+</head>
+<body>
+
+{% block header %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Taama</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Concept! <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Transporter un colis</a></li>
+                    <li><a href="#">Envoyer un colis</a></li>
+                    <li><a href="#">Contact</a></li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+{% endblock %}
+
+<div class="container">
+    <div class="row">
+        {% block link %}
+            <div class="col-sm-4">
+                <h3>Column 1</h3>
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 2</h3>
+            </div>
+            <div class="col-sm-4">
+                <h3>Column 3</h3>
+            </div>
+        {% endblock %}
+    </div>
+    <div class="row">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>

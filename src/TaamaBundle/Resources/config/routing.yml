@@ -1,0 +1,3 @@
+taama_homepage:
+    path:     /
+    defaults: { _controller: TaamaBundle:Default:index }
