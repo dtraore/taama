@@ -1,0 +1,14 @@
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    Connected
+{% else %}
+    <li>
+        <a href="#" class="btn btn-secondary">
+        Inscription
+    </a>
+    </li>
+    <li>
+    <a href="#" class="btn btn-secondary">
+        Connexion
+    </a>
+    </li>
+{% endif %}
