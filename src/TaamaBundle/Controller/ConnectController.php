@@ -16,8 +16,8 @@ use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
-
-class ConnectController extends ContainerAware
+use HWI\Bundle\OAuthBundle\Controller\ConnectController as Connect;
+class ConnectController extends Connect
 {
     public function registrationAction(Request $request, $key)
     {
@@ -34,7 +34,7 @@ class ConnectController extends ContainerAware
         $session = $request->getSession();
         $error = $session->get('_hwi_oauth.registration_error.'.$key);
         $session->remove('_hwi_oauth.registration_error.'.$key);
-
+        dump($error, __METHOD__);
         if (!($error instanceof AccountNotLinkedException) || (time() - $key > 300)) {
             throw new \Exception('Cannot register an account.');
         }
