@@ -30,3 +30,26 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+
+hwi_oauth_security:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix: /connect
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+# We override this part of the routing
+hwi_oauth_connect:
+     resource: "@TaamaBundle/Resources/config/connect.yml"
+     prefix: /connect
+
+facebook_login:
+    pattern: /connect/check-facebook
+
+google_login:
+    pattern: /connect/check-google
+
+twitter_login:
+    pattern: /connect/check-twitter
+
