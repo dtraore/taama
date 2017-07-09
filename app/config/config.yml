@@ -72,6 +72,10 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: TaamaBundle\Entity\User
+    
+    from_email:
+        address: admin@taama.com
+        sender_name: Taama
 
     #registration:
       #form:
@@ -123,7 +127,7 @@ hwi_oauth:
     connect:
         confirmation: true
         registration_form: fos_user.registration.form
-    firewall_name: main
+    firewall_names: [main]
     fosub:
         username_iterations: 30
         properties:

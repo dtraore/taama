@@ -16,7 +16,7 @@ security:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
-                csrf_provider: form.csrf_provider
+                csrf_token_generator: form.csrf_provider
                 login_path: /login
                 check_path: /login_check
             oauth:
@@ -37,7 +37,7 @@ security:
             security: false
 
             remember_me:
-                key: "%secret%"
+                secret: "%secret%"
                 lifetime: 31536000
                 path: /
                 domain: ~
