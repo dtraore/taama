@@ -43,15 +43,18 @@ class ConnectController extends Connect
             ->getResourceOwnerByName($error->getResourceOwnerName())
             ->getUserInformation($error->getRawToken())
         ;
-
         // enable compatibility with FOSUserBundle 1.3.x and 2.x
         if (interface_exists('FOS\UserBundle\Form\Factory\FactoryInterface')) {
+            dump('1');
             $form = $this->container->get('hwi_oauth.registration.form.factory')->createForm();
         } else {
+            dump('2');
             $form = $this->container->get('hwi_oauth.registration.form');
         }
+        dump($form);//die;
 
         $formHandler = $this->container->get('hwi_oauth.registration.form.handler');
+        dump($formHandler, $form, __METHOD__);//die;
 
         if ($formHandler->process($request, $form, $userInformation)) {
             // Connect user
@@ -86,7 +89,7 @@ class ConnectController extends Connect
 
             // Redirect the user to homepage
             $url = $this->container->get('router')->generate(
-                'acme_acme_homepage'
+                'taama_homepage'
             );
             return new RedirectResponse($url);
         }
@@ -94,6 +97,8 @@ class ConnectController extends Connect
         // reset the error in the session
         $key = time();
         $session->set('_hwi_oauth.registration_error.'.$key, $error);
+
+        dump($this->getTemplatingEngine(), $userInformation);//die;
 
         return $this->container->get('templating')->renderResponse('HWIOAuthBundle:Connect:registration.html.' . $this->getTemplatingEngine(), array(
             'key' => $key,
