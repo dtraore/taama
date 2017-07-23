@@ -11,26 +11,46 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
  */
-class User extends BaseUser
-{
+class User extends BaseUser {
     /**
-     * @var int
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var int @ORM\Column(name="id", type="integer")
+     *      @ORM\Id
+     *      @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected  $id;
-
-
+    protected $id;
+    
+    /**
+     * @ORM\Column(name="facebook_id", type="string", length=255, nullable=true)
+     */
+    private $facebookId;
+    private $facebookAccessToken;
+    
     /**
      * Get id
      *
      * @return int
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
+    }
+
+    public function getFacebookId() {
+        return $this->facebookId;
+    }
+
+    public function setFacebookId($facebookId) {
+        $this->facebookId = $facebookId;
+        return $this;
+    }
+
+    public function getFacebookAccessToken() {
+        return $this->facebookAccessToken;
+    }
+
+    public function setFacebookAccessToken($facebookAccessToken) {
+        $this->facebookAccessToken = $facebookAccessToken;
+        return $this;
     }
 }
 

@@ -1,0 +1,9 @@
+services:
+#    user.example:
+#        class: UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+services:
+    taama.hwi.user_provider:
+        class:        UserBundle\Entity\UserProvider
+        arguments: ['@fos_user.user_manager', { facebook: facebook_id }]

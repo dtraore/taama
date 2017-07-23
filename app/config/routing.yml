@@ -16,21 +16,21 @@ app:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
-#hwioauthredirect:
-#    resource: '@HWIOAuthBundle/Resources/config/routing/redirect.xml'
-#    prefix: /connect
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+    
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /connect
 
-#hwioauthconnect:
-#    resource: '@HWIOAuthBundle/Resources/config/routing/connect.xml'
-#    prefix: /connect
-
-#hwioauthlogin:
-#    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-#    prefix: /login
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /login
 
 
-#facebook_login:
-#    path: /login/check-facebook
+facebook_login:
+    path: /login/check-facebook
 
 #google_login:
 #    path: /login/check-google
