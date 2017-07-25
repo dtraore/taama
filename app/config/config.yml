@@ -40,6 +40,16 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
 
+# Assetic Configuration
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~
+       # uglifyjs2:
+       #     bin: /usr/local/bin/uglifyjs
+
+
 # Doctrine Configuration
 doctrine:
     dbal:

@@ -6,7 +6,7 @@ taama:
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /user
 
 
 admin_area:
