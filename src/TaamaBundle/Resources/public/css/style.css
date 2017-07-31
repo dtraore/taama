@@ -121,3 +121,9 @@ footer {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+#login-panel {
+    width: 250px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

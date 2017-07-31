@@ -23,6 +23,6 @@ class HomeController extends Controller
     public function testAction()
     {
         //dump('Yes');
-        return $this->render('TaamaBundle:base.html.twig');
+        return $this->render('base.html.twig');
     }
 }
