@@ -8,13 +8,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class HomeController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="taama_home")
      */
     public function indexAction()
     {
-        dump('Yes');
-        dump($this->getParameter('kernel.environment'));
-        return $this->render('TaamaBundle:home:index.html.twig');
+        return $this->render('default/index.html.twig');
     }
 
     /**
