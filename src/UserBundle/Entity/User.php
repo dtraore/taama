@@ -6,6 +6,7 @@ namespace UserBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use TaamaBundle\Entity\Colis;
 
 /**
  * User
@@ -55,6 +56,19 @@ class User extends BaseUser {
      */
     private $facebookId;
     private $facebookAccessToken;
+
+    /**
+     * @ORM\OneToMany(targetEntity="\TaamaBundle\Entity\Colis", mappedBy="colis")
+     */
+    private $colis;
+
+    /**
+     * @return mixed
+     */
+    public function getColis()
+    {
+        return $this->colis;
+    }
     
     /**
      * Get id

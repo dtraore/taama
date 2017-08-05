@@ -92,7 +92,9 @@ fos_user:
         form:
             #name: app_user_registration
             type: UserBundle\Form\RegistrationType
-
+    profile:
+        form:
+            type: UserBundle\Form\EditProfileType
 
 hwi_oauth:
     connect:
