@@ -2,8 +2,11 @@
 
 namespace TaamaBundle\Controller;
 
+use Doctrine\ORM\EntityManager;
+use TaamaBundle\Entity\Pays;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Intl\Intl;
 
 class HomeController extends Controller
 {

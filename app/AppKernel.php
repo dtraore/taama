@@ -25,6 +25,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new FOS\ElasticaBundle\FOSElasticaBundle(),
 
             //Taama bundles
             new UserBundle\UserBundle(),

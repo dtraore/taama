@@ -136,3 +136,52 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts: [admin]
+
+#Vich UploadBundle
+vich_uploader:
+    db_driver: orm
+    mappings:
+        colis_logo:
+            namer: vich_uploader.namer_origname
+            uri_prefix:         /uploads/colis/logo
+            upload_destination: %kernel.root_dir%/../web/uploads/colis/logo
+            delete_on_update:   true
+            delete_on_remove:   true
+
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        app:
+            types:
+                user:
+                    properties:
+                        username: ~
+                        firstName: ~
+                        lastName: ~
+                        email: ~
+
+                    persistence:
+                        # the driver can be orm, mongodb, phpcr or propel
+                        # listener and finder are not supported by
+                        # propel and should be removed
+                        driver: orm
+                        model: \UserBundle\Entity\User
+                        provider: ~
+                        finder: ~
+
+                colis:
+                    properties:
+                        poids: ~
+                        ville_depart: ~
+                        ville_arrivee: ~
+                        date_arrivee: ~
+                        date_depart: ~
+                    persistence:
+                        # the driver can be orm, mongodb, phpcr or propel
+                        # listener and finder are not supported by
+                        # propel and should be removed
+                        driver: orm
+                        model: \TaamaBundle\Entity\Colis
+                        provider: ~
+                        finder: ~

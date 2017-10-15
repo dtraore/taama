@@ -58,3 +58,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Utilisateur }
         public: true
+
+    admin.ville:
+        class: TaamaBundle\Admin\VilleAdmin
+        arguments: [~, TaamaBundle\Entity\Ville, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Ville }
+        public: true

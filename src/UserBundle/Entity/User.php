@@ -58,7 +58,7 @@ class User extends BaseUser {
     private $facebookAccessToken;
 
     /**
-     * @ORM\OneToMany(targetEntity="\TaamaBundle\Entity\Colis", mappedBy="colis")
+     * @ORM\OneToMany(targetEntity="\TaamaBundle\Entity\Colis", mappedBy="transporteur")
      */
     private $colis;
 
@@ -127,6 +127,25 @@ class User extends BaseUser {
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+    }
+
+    /**
+     * Liste des rôles pour l'agenda de la MAIF
+     * @return [type] [description]
+     */
+    public static function getRoleChoices($super_admin = false)
+    {
+        $roles = array();
+        if ($super_admin) {
+            $roles = array('ROLE_SUPER_ADMIN' => 'fos.rc2c_admin.role');
+        }
+        $roles = $roles+array(
+                'ROLE_ADMIN' => 'fos.admin.role',
+                'ROLE_USER'  => 'fos.user.role',
+
+            );
+
+        return $roles;
     }
 
 }

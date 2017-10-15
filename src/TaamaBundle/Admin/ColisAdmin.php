@@ -5,6 +5,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class ColisAdmin extends AbstractAdmin{
 
@@ -13,14 +14,41 @@ class ColisAdmin extends AbstractAdmin{
         $formMapper
             ->add('poids', 'integer', array(
                 'label'    => 'Poids',
-                'required' => false
+                'required' => true
+            ))
+            ->add('ville_depart', 'entity', array(
+                'label'    => 'Depart',
+                'required' => true,
+                'multiple' => false,
+                'class' => 'TaamaBundle:Ville'
+            ))
+            ->add('ville_arrivee', 'entity', array(
+                'label'    => 'Destination',
+                'required' => true,
+                'multiple' => false,
+                'class' => 'TaamaBundle:Ville'
+            ))
+            ->add('date_depart', 'date', array(
+                'label'    => 'Date de départ',
+                'required' => true
+            ))
+            ->add('date_arrivee', 'date', array(
+                'label'    => "Date d'arrivée ",
+                'required' => true
             ))
             ->add('transporteur', 'entity',array(
                 'class'          => 'UserBundle:User',
-                'label'          => 'rse.thematic.label',
+                'label'          => 'Transporteur',
                 'by_reference'   => true,
                 'multiple'       => false,
             ))
+            /*
+            ->add('logo', VichFileType::class, array(
+                'required'      => false,
+                'label'         => 'Image descriptive',
+                'allow_delete'  => false,
+                'download_link' => false
+            ))*/
         ;
     }
 
@@ -28,7 +56,19 @@ class ColisAdmin extends AbstractAdmin{
     {
         $listMapper
             ->addIdentifier('poids', null, array(
-                'label' => 'rse.name.label'
+                'label' => 'Poids'
+            ))
+            ->addIdentifier('ville_depart', null, array(
+                'label' => 'Ville Depart'
+            ))
+            ->addIdentifier('ville_arrivee', null, array(
+                'label' => 'Ville arrivée'
+            ))
+            ->addIdentifier('date_depart', null, array(
+                'label' => 'Date départ'
+            ))
+            ->addIdentifier('transporteur', null, array(
+                'label' => 'Transporteur'
             ))
             ->add('_action', "actions", array(
                 'actions' => array(
