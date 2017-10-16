@@ -12,7 +12,7 @@ use TaamaBundle\Entity\Colis;
  * User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="UserBundle\Repository\UserRepository")
+ * @ORM\Entity(repositoryClass="UserBundle\Entity\Repository\UserRepository")
  */
 class User extends BaseUser {
     /**

@@ -160,13 +160,12 @@ fos_elastica:
                         firstName: ~
                         lastName: ~
                         email: ~
-
                     persistence:
                         # the driver can be orm, mongodb, phpcr or propel
                         # listener and finder are not supported by
                         # propel and should be removed
                         driver: orm
-                        model: \UserBundle\Entity\User
+                        model: UserBundle\Entity\User
                         provider: ~
                         finder: ~
 
@@ -182,6 +181,6 @@ fos_elastica:
                         # listener and finder are not supported by
                         # propel and should be removed
                         driver: orm
-                        model: \TaamaBundle\Entity\Colis
+                        model: TaamaBundle\Entity\Colis
                         provider: ~
                         finder: ~

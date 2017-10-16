@@ -15,6 +15,8 @@ class HomeController extends Controller
      */
     public function indexAction()
     {
+        $finder = $this->container->get('fos_elastica.finder.app.colis');
+        dump($finder->find('Rennes'));
         return $this->render('default/index.html.twig');
     }
 
